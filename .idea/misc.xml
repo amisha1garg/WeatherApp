@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/GAMISHA/AndroidStudioProjects/OpenWeatherApp/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
+        <entry key="..\:/Users/GAMISHA/AndroidStudioProjects/OpenWeatherApp/app/src/main/res/layout/activity_details_screen.xml" value="0.1796875" />
+        <entry key="..\:/Users/GAMISHA/AndroidStudioProjects/OpenWeatherApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/GAMISHA/AndroidStudioProjects/OpenWeatherApp/app/src/main/res/layout/weather_card_view.xml" value="0.23295454545454544" />
       </map>
     </option>
   </component>
