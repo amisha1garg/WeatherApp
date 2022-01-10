@@ -34,6 +34,8 @@ public class HomeScreenActivity extends AppCompatActivity {
     ArrayList<String> placesList = new ArrayList<String>();
     public Button addButton;
     public EditText addCityEditText;
+    private static final String appId = "b07692ef67b682cb09800867a6639aee";
+    private static final String units = "metric";
 
 
     @Override
@@ -159,7 +161,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         weatherDataList = new ArrayList<>();
 
         for (int i = 0; i < placesList.size(); i++) {
-            Call<WeatherData> call = apiService.getInfo(placesList.get(i), "metric", "b07692ef67b682cb09800867a6639aee");
+            Call<WeatherData> call = apiService.getInfo(placesList.get(i), units, appId);
 
             call.enqueue(new Callback<WeatherData>() {
                 @Override
