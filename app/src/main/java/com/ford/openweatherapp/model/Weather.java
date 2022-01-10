@@ -40,9 +40,9 @@ public class Weather {
     public String toString() {
         return "Weather{" +"\n"+
                 "id=" + id +"\n"+
-                ", main='" + main + '\'' +"\n"+
-                ", description='" + description + '\'' +"\n"+
-                ", icon='" + icon + '\'' +"\n"+
+                "main='" + main + '\'' +"\n"+
+                "description='" + description + '\'' +"\n"+
+                "icon='" + icon + '\'' +"\n"+
                 '}';
     }
 }

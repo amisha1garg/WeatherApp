@@ -47,10 +47,10 @@ public class System {
     public String toString() {
         return "System{" +"\n"+
                 "type=" + type +"\n"+
-                ", id=" + id +"\n"+
-                ", country='" + country + '\'' +"\n"+
-                ", sunrise=" + sunrise +"\n"+
-                ", sunset=" + sunset +"\n"+
+                "id=" + id +"\n"+
+                "country='" + country + '\'' +"\n"+
+                "sunrise=" + sunrise +"\n"+
+                "sunset=" + sunset +"\n"+
                 '}';
     }
 }

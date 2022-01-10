@@ -16,8 +16,8 @@ public class Clouds {
 
     @Override
     public String toString() {
-        return "Clouds{" +"\n"+
-                "all=" + all +"\n"+
-                '}';
+        return "Clouds" +"\n"+
+                "all=" + all +"\n"
+                ;
     }
 }

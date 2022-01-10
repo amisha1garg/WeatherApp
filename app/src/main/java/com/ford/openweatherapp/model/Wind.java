@@ -26,7 +26,7 @@ public class Wind {
     public String toString() {
         return "Wind{" +"\n"+
                 "speed=" + speed +"\n"+
-                ", degree=" + degree +"\n"+
+                "degree=" + degree +"\n"+
                 '}';
     }
 }

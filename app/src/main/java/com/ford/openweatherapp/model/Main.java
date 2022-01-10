@@ -55,11 +55,11 @@ public class Main {
     public String toString() {
         return "Main{" +"\n"+
                 "temp=" + temp +"\n"+
-                ", feelsLike=" + feelsLike +"\n"+
-                ", tempMin=" + tempMin +"\n"+
-                ", tempMax=" + tempMax +"\n"+
-                ", pressure=" + pressure +"\n"+
-                ", humidity=" + humidity +"\n"+
+                "feelsLike=" + feelsLike +"\n"+
+                "tempMin=" + tempMin +"\n"+
+                "tempMax=" + tempMax +"\n"+
+                "pressure=" + pressure +"\n"+
+                "humidity=" + humidity +"\n"+
                 '}';
     }
 

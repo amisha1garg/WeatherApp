@@ -25,7 +25,7 @@ public class Coordinates {
     public String toString() {
         return "Coordinates{" +"\n"+
                 "longitude=" + longitude +"\n"+
-                ", latitude=" + latitude +"\n"+
+                "latitude=" + latitude +"\n"+
                 '}';
     }
 }
