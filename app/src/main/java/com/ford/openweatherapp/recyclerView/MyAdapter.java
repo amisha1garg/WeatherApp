@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.ford.openweatherapp.R;
 import com.ford.openweatherapp.activities.DetailsScreenActivity;
-import com.ford.openweatherapp.model.WeatherData;
+import com.ford.openweatherapp.models.WeatherData;
 
 import java.util.ArrayList;
 import java.util.List;

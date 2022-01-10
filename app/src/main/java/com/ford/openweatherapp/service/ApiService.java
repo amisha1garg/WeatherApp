@@ -1,6 +1,6 @@
 package com.ford.openweatherapp.service;
 
-import com.ford.openweatherapp.model.WeatherData;
+import com.ford.openweatherapp.models.WeatherData;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

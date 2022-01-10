@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.ford.openweatherapp.R;
-import com.ford.openweatherapp.model.WeatherData;
+import com.ford.openweatherapp.models.WeatherData;
 import com.ford.openweatherapp.recyclerView.MyAdapter;
 import com.ford.openweatherapp.retrofit.MyRetrofit;
 import com.ford.openweatherapp.service.ApiService;

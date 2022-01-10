@@ -1,4 +1,4 @@
-package com.ford.openweatherapp.model;
+package com.ford.openweatherapp.models;
 
 import com.google.gson.annotations.SerializedName;
 
