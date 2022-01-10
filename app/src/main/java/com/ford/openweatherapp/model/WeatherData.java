@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Json {
+public class WeatherData {
 
     @SerializedName("coord")
     private Coordinates coordinates;
@@ -33,7 +33,7 @@ public class Json {
     @SerializedName("cod")
     private int cod;
 
-    public Json(Coordinates coordinates, List<Weather> weather, String base, Main main, int visibility, Wind wind, Clouds clouds, int dt, System system, int timeZone, int id, String name, int cod) {
+    public WeatherData(Coordinates coordinates, List<Weather> weather, String base, Main main, int visibility, Wind wind, Clouds clouds, int dt, System system, int timeZone, int id, String name, int cod) {
         this.coordinates = coordinates;
         this.weather = weather;
         this.base = base;

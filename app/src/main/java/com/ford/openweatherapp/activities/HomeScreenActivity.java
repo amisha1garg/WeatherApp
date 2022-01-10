@@ -11,13 +11,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.ford.openweatherapp.R;
-import com.ford.openweatherapp.model.Json;
+import com.ford.openweatherapp.model.WeatherData;
 import com.ford.openweatherapp.recyclerView.MyAdapter;
-import com.ford.openweatherapp.retrofit.RetrofitCode;
+import com.ford.openweatherapp.retrofit.MyRetrofit;
 import com.ford.openweatherapp.service.ApiService;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,13 +27,13 @@ public class HomeScreenActivity extends AppCompatActivity {
 
     ApiService apiService;
     RecyclerView recyclerView;
-    RetrofitCode retrofitCode = new RetrofitCode();
+    MyRetrofit myRetrofit = new MyRetrofit();
     Retrofit retrofit;
     MyAdapter adapter;
-    ArrayList<Json> jsonArrayList;
+    ArrayList<WeatherData> weatherDataList;
     ArrayList<String> placesList = new ArrayList<String>();
     public Button addButton;
-    public EditText addCity;
+    public EditText addCityEditText;
 
 
     @Override
@@ -42,12 +41,12 @@ public class HomeScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         addButton = findViewById(R.id.addButton);
-        addCity = findViewById(R.id.editTextCityName);
+        addCityEditText = findViewById(R.id.editTextCityName);
 
-        retrofit = retrofitCode.getRetrofit();
+        retrofit = myRetrofit.getRetrofit();
         apiService = retrofit.create(ApiService.class);
         populatePlacesList(placesList);
-        populateArrayList(placesList);
+        populateWeatherDataList(placesList);
 
 
     }
@@ -155,22 +154,22 @@ public class HomeScreenActivity extends AppCompatActivity {
         placesList.add("BUDAPEST");
     }
 
-    public void populateArrayList(ArrayList<String> placesList) {
+    public void populateWeatherDataList(ArrayList<String> placesList) {
 
-        jsonArrayList = new ArrayList<>();
+        weatherDataList = new ArrayList<>();
 
         for (int i = 0; i < placesList.size(); i++) {
-            Call<Json> call = apiService.getInfo(placesList.get(i), "metric", "b07692ef67b682cb09800867a6639aee");
+            Call<WeatherData> call = apiService.getInfo(placesList.get(i), "metric", "b07692ef67b682cb09800867a6639aee");
 
-            call.enqueue(new Callback<Json>() {
+            call.enqueue(new Callback<WeatherData>() {
                 @Override
-                public void onResponse(Call<Json> call, Response<Json> response) {
-                    Json data = response.body();
-                    jsonArrayList.add(data);
+                public void onResponse(Call<WeatherData> call, Response<WeatherData> response) {
+                    WeatherData data = response.body();
+                    weatherDataList.add(data);
                 }
 
                 @Override
-                public void onFailure(Call<Json> call, Throwable t) {
+                public void onFailure(Call<WeatherData> call, Throwable t) {
                     Toast.makeText(getApplicationContext(), "Invalid city name", Toast.LENGTH_LONG).show();
                 }
             });
@@ -183,15 +182,15 @@ public class HomeScreenActivity extends AppCompatActivity {
     private void createRecyclerView() {
         recyclerView = findViewById(R.id.recyclerView);
         GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
-        adapter = new MyAdapter(this, jsonArrayList);
+        adapter = new MyAdapter(this, weatherDataList);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);
     }
 
     public void onClickAddButton(View view) {
 
-        placesList.add(0,addCity.getText().toString());
-        populateArrayList(placesList);
+        placesList.add(0, addCityEditText.getText().toString());
+        populateWeatherDataList(placesList);
     }
 
 

@@ -1,6 +1,6 @@
 package com.ford.openweatherapp.service;
 
-import com.ford.openweatherapp.model.Json;
+import com.ford.openweatherapp.model.WeatherData;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -11,9 +11,9 @@ public interface ApiService {
 
 
     @GET("weather")
-    Call<Json> getInfo(@Query("q") String place,
-                       @Query("units") String units,
-                       @Query("appid") String apiKey);
+    Call<WeatherData> getInfo(@Query("q") String place,
+                              @Query("units") String units,
+                              @Query("appid") String apiKey);
 
 
 

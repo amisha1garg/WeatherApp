@@ -5,7 +5,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RetrofitCode {
+public class MyRetrofit {
 
     public static final String Base_URL ="https://api.openweathermap.org/data/2.5/";
 

@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.ford.openweatherapp.R;
 import com.ford.openweatherapp.activities.DetailsScreenActivity;
-import com.ford.openweatherapp.model.Json;
+import com.ford.openweatherapp.model.WeatherData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,16 +23,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     Context context;
     View view;
-    List<Json> jsonDataArrayList ;
+    List<WeatherData> weatherDataDataArrayList;
     String imageBaseUrl= "https://openweathermap.org/img/wn/";
     String imageUrl ;
     String imageUrlEndPoint = "@2x.png";
     String iconId;
 
 
-    public MyAdapter(Context context, ArrayList<Json> jsonDataArrayList) {
+    public MyAdapter(Context context, ArrayList<WeatherData> weatherDataDataArrayList) {
         this.context = context;
-        this.jsonDataArrayList = jsonDataArrayList;
+        this.weatherDataDataArrayList = weatherDataDataArrayList;
 
     }
 
@@ -46,11 +46,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Json json = jsonDataArrayList.get(position);
-        holder.temperatureText.setText(json.getMain().getTemp());
-        holder.cityText.setText(json.getName());
-        holder.countryText.setText(json.getSys().getCountry());
-        iconId = json.getWeather().get(0).getIcon();
+        WeatherData weatherData = weatherDataDataArrayList.get(position);
+        holder.temperatureText.setText(weatherData.getMain().getTemp());
+        holder.cityText.setText(weatherData.getName());
+        holder.countryText.setText(weatherData.getSys().getCountry());
+        iconId = weatherData.getWeather().get(0).getIcon();
 
         setImageIcon(holder,iconId);
 
@@ -60,16 +60,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     @Override
     public int getItemCount() {
-        return jsonDataArrayList.size();
+        return weatherDataDataArrayList.size();
     }
 
 
 
     public void setOnClick(@NonNull MyViewHolder holder, int position){
-        Json json = jsonDataArrayList.get(position);
+        WeatherData weatherData = weatherDataDataArrayList.get(position);
          holder.cardLayout.setOnClickListener(view -> {
             Intent intent = new Intent(context, DetailsScreenActivity.class);
-            intent.putExtra("weatherInfo",json.toString());
+            intent.putExtra("weatherInfo", weatherData.toString());
             context.startActivity(intent);
 
         });
