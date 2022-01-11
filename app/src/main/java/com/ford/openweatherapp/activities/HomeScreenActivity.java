@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +17,7 @@ import com.ford.openweatherapp.models.WeatherData;
 import com.ford.openweatherapp.recyclerView.MyAdapter;
 import com.ford.openweatherapp.retrofit.MyRetrofit;
 import com.ford.openweatherapp.service.ApiService;
+import com.google.android.material.internal.TextWatcherAdapter;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -47,6 +50,8 @@ public class HomeScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         addButton = findViewById(R.id.addButton);
         addCityEditText = findViewById(R.id.editTextCityName);
+
+        addCityEditText.addTextChangedListener(textWatcher);
 
         retrofit = myRetrofit.getRetrofit();
         apiService = retrofit.create(ApiService.class);
@@ -95,6 +100,25 @@ public class HomeScreenActivity extends AppCompatActivity {
             StyleableToast.makeText(this, "Already there !", Toast.LENGTH_SHORT,R.style.myToast).show();
         }
     }
+
+    private TextWatcher textWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            String addCityEditInput = addCityEditText.getText().toString().trim();
+
+            addButton.setEnabled(!addCityEditInput.isEmpty() );
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+
+        }
+    };
 
 
 }

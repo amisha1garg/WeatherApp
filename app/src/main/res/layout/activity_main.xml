@@ -45,6 +45,7 @@
         android:background="@drawable/add_button_gradient"
         android:onClick="onClickAddButton"
         android:text="@string/add"
+        android:enabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.289"
         app:layout_constraintStart_toEndOf="@+id/editTextCityName"
