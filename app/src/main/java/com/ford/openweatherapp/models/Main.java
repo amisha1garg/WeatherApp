@@ -26,9 +26,9 @@ public class Main {
         this.humidity = humidity;
     }
 
-    public String getTemp() {
+    public Double getTemp() {
 
-        return Double.toString(temp)+"°C";
+        return temp;
     }
 
     public double getFeelsLike() {

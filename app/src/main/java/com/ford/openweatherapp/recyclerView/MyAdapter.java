@@ -3,6 +3,7 @@ package com.ford.openweatherapp.recyclerView;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,14 +48,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         WeatherData weatherData = weatherDataArrayList.get(position);
-        holder.temperatureText.setText(weatherData.getMain().getTemp());
+        holder.temperatureText.setText(weatherData.getMain().getTemp().toString()+"°C");
         holder.cityText.setText(weatherData.getName());
         holder.countryText.setText(weatherData.getSys().getCountry());
         iconId = weatherData.getWeather().get(0).getIcon();
 
         setImageIcon(holder,iconId);
 
-        setOnClick(holder,position);
+        setOnClickListenerCard(holder,position);
 
     }
 
@@ -65,16 +66,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
 
 
-    public void setOnClick(@NonNull MyViewHolder holder, int position){
+    public void setOnClickListenerCard(@NonNull MyViewHolder holder, int position){
         WeatherData weatherData = weatherDataArrayList.get(position);
          holder.cardLayout.setOnClickListener(view -> {
             Intent intent = new Intent(context, DetailsScreenActivity.class);
             intent.putExtra("weatherInfo", weatherData.toString());
             context.startActivity(intent);
-
-
         });
-
     }
 
     public void setImageIcon(@NonNull MyViewHolder holder,  String iconId){
@@ -90,8 +88,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
                 .load(imageUrl)
                 .apply(options)
                 .into(holder.imageIcon);
-
     }
-
 
 }
