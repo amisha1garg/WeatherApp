@@ -72,6 +72,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
             intent.putExtra("weatherInfo", weatherData.toString());
             context.startActivity(intent);
 
+
         });
 
     }

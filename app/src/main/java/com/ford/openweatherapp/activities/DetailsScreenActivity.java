@@ -23,7 +23,6 @@ public class DetailsScreenActivity extends AppCompatActivity {
         getData();
         setData();
 
-
     }
 
     public void getData(){
@@ -35,8 +34,11 @@ public class DetailsScreenActivity extends AppCompatActivity {
             Toast.makeText(this,"No data",Toast.LENGTH_LONG).show();
         }
     }
+
     public void setData()
     {
         detailsText.setText(data1);
     }
+
+
 }
