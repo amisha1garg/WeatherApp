@@ -30,18 +30,18 @@ import retrofit2.Retrofit;
 
 public class HomeScreenActivity extends AppCompatActivity {
 
-    ApiService apiService;
-    RecyclerView recyclerView;
-    MyRetrofit myRetrofit = new MyRetrofit();
-    Retrofit retrofit;
-    MyAdapter adapter;
-    ArrayList<WeatherData> weatherDataList = new ArrayList<>();
-    ArrayList<String> placesList = new ArrayList<String>();
+    private ApiService apiService;
+    private RecyclerView recyclerView;
+    private MyRetrofit myRetrofit = new MyRetrofit();
+    private Retrofit retrofit;
+    private MyAdapter adapter;
+    private ArrayList<WeatherData> weatherDataList = new ArrayList<>();
+    private ArrayList<String> placesList = new ArrayList<String>();
     public Button addButton;
     public EditText addCityEditText;
     private static final String appId = "b07692ef67b682cb09800867a6639aee";
     private static final String units = "metric";
-    String newCity;
+    private String newCity;
 
 
     @Override

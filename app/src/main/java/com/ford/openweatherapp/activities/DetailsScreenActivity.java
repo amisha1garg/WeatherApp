@@ -10,8 +10,8 @@ import com.ford.openweatherapp.R;
 
 public class DetailsScreenActivity extends AppCompatActivity {
 
-    public TextView detailsText;
-    String data1;
+    private TextView detailsText;
+    private String data1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

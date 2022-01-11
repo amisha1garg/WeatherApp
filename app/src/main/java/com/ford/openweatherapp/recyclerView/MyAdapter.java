@@ -22,13 +22,13 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
-    Context context;
-    View view;
-    List<WeatherData> weatherDataArrayList;
-    String imageBaseUrl= "https://openweathermap.org/img/wn/";
-    String imageUrl ;
-    String imageUrlEndPoint = "@2x.png";
-    String iconId;
+    private Context context;
+    private View view;
+    private List<WeatherData> weatherDataArrayList;
+    private String imageBaseUrl= "https://openweathermap.org/img/wn/";
+    private String imageUrl ;
+    private String imageUrlEndPoint = "@2x.png";
+    private String iconId;
 
 
     public MyAdapter(Context context, ArrayList<WeatherData> weatherDataArrayList) {
