@@ -19,6 +19,7 @@ import com.ford.openweatherapp.service.ApiService;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+import io.github.muddz.styleabletoast.StyleableToast;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -77,10 +78,11 @@ public class HomeScreenActivity extends AppCompatActivity {
                         placesList.add(0, newCity.toLowerCase());
                         weatherDataList.add(data);
                         adapter.notifyDataSetChanged();
-                        Toast.makeText(getApplicationContext(), "City added successfully !", Toast.LENGTH_SHORT).show();
+                        StyleableToast.makeText(getApplicationContext(), "City added successfully !", Toast.LENGTH_SHORT,R.style.myToast).show();
                     }
                     else{
-                        Toast.makeText(getApplicationContext(), "Invalid city name", Toast.LENGTH_SHORT).show();
+                        StyleableToast.makeText(getApplicationContext(), "Invalid city name", Toast.LENGTH_SHORT,R.style.myToast2).show();
+
                     }
                 }
 
@@ -90,7 +92,7 @@ public class HomeScreenActivity extends AppCompatActivity {
                 }
             });
         } else {
-            Toast.makeText(this, "Already there !", Toast.LENGTH_SHORT).show();
+            StyleableToast.makeText(this, "Already there !", Toast.LENGTH_SHORT,R.style.myToast).show();
         }
     }
 

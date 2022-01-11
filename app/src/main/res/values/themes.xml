@@ -13,4 +13,22 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+        <style name="myToast" parent="BaseStyleableToast">
+            <item name="stColorBackground">@color/purple_500</item>
+            <item name="stTextColor">@color/white</item>
+            <item name="stTextSize">18dp</item>
+            <item name="stIconStart">@drawable/ic_round_sentiment_satisfied_24</item>
+        </style>
+    <style name="myToast2" parent="BaseStyleableToast">
+        <item name="stColorBackground">@color/purple_500</item>
+        <item name="stTextColor">@color/white</item>
+        <item name="stTextSize">18dp</item>
+        <item name="stIconStart">@drawable/ic_round_sentiment_dissatisfied_24</item>
+    </style>
+    <style name="BaseStyleableToast">
+        <item name="stLength">SHORT</item>
+    </style>
+
+
 </resources>
