@@ -1,9 +1,5 @@
 package com.ford.openweatherapp.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,15 +9,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.ford.openweatherapp.R;
 import com.ford.openweatherapp.models.WeatherData;
 import com.ford.openweatherapp.recyclerView.MyAdapter;
 import com.ford.openweatherapp.retrofit.MyRetrofit;
 import com.ford.openweatherapp.service.ApiService;
-import com.google.android.material.internal.TextWatcherAdapter;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 
 import io.github.muddz.styleabletoast.StyleableToast;
 import retrofit2.Call;
@@ -38,8 +36,8 @@ public class HomeScreenActivity extends AppCompatActivity {
     private MyAdapter adapter;
     private ArrayList<WeatherData> weatherDataList = new ArrayList<>();
     private ArrayList<String> placesList = new ArrayList<String>();
-    public Button addButton;
-    public EditText addCityEditText;
+    private Button addButton;
+    private EditText addCityEditText;
     private static final String appId = "b07692ef67b682cb09800867a6639aee";
     private static final String units = "metric";
     private String newCity;
@@ -113,7 +111,6 @@ public class HomeScreenActivity extends AppCompatActivity {
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
             String addCityEditInput = addCityEditText.getText().toString().trim();
-
             addButton.setEnabled(!addCityEditInput.isEmpty() );
         }
 
