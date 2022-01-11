@@ -23,16 +23,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     Context context;
     View view;
-    List<WeatherData> weatherDataDataArrayList;
+    List<WeatherData> weatherDataArrayList;
     String imageBaseUrl= "https://openweathermap.org/img/wn/";
     String imageUrl ;
     String imageUrlEndPoint = "@2x.png";
     String iconId;
 
 
-    public MyAdapter(Context context, ArrayList<WeatherData> weatherDataDataArrayList) {
+    public MyAdapter(Context context, ArrayList<WeatherData> weatherDataArrayList) {
         this.context = context;
-        this.weatherDataDataArrayList = weatherDataDataArrayList;
+        this.weatherDataArrayList = weatherDataArrayList;
 
     }
 
@@ -46,7 +46,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        WeatherData weatherData = weatherDataDataArrayList.get(position);
+        WeatherData weatherData = weatherDataArrayList.get(position);
         holder.temperatureText.setText(weatherData.getMain().getTemp());
         holder.cityText.setText(weatherData.getName());
         holder.countryText.setText(weatherData.getSys().getCountry());
@@ -60,13 +60,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     @Override
     public int getItemCount() {
-        return weatherDataDataArrayList.size();
+        return weatherDataArrayList.size();
     }
 
 
 
     public void setOnClick(@NonNull MyViewHolder holder, int position){
-        WeatherData weatherData = weatherDataDataArrayList.get(position);
+        WeatherData weatherData = weatherDataArrayList.get(position);
          holder.cardLayout.setOnClickListener(view -> {
             Intent intent = new Intent(context, DetailsScreenActivity.class);
             intent.putExtra("weatherInfo", weatherData.toString());
