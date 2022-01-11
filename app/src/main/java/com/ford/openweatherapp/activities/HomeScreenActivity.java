@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -42,6 +43,7 @@ public class HomeScreenActivity extends AppCompatActivity {
     private static final String appId = "b07692ef67b682cb09800867a6639aee";
     private static final String units = "metric";
     private String newCity;
+    private Context context;
 
 
     @Override
@@ -50,6 +52,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         addButton = findViewById(R.id.addButton);
         addCityEditText = findViewById(R.id.editTextCityName);
+        context = this;
 
         addCityEditText.addTextChangedListener(textWatcher);
 
@@ -83,17 +86,17 @@ public class HomeScreenActivity extends AppCompatActivity {
                         placesList.add(0, newCity.toLowerCase());
                         weatherDataList.add(data);
                         adapter.notifyDataSetChanged();
-                        StyleableToast.makeText(getApplicationContext(), "City added successfully !", Toast.LENGTH_SHORT,R.style.myToast).show();
+                        StyleableToast.makeText(context, "City added successfully !", Toast.LENGTH_SHORT,R.style.myToast).show();
                     }
                     else{
-                        StyleableToast.makeText(getApplicationContext(), "Invalid city name", Toast.LENGTH_SHORT,R.style.myToast2).show();
+                        StyleableToast.makeText(context, "Invalid city name", Toast.LENGTH_SHORT,R.style.myToast2).show();
 
                     }
                 }
 
                 @Override
                 public void onFailure(Call<WeatherData> call, Throwable t) {
-                    Toast.makeText(getApplicationContext(), "Invalid city name", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Invalid city name", Toast.LENGTH_LONG).show();
                 }
             });
         } else {
